@@ -4,16 +4,20 @@ import {
         View,
         Text,
         TextInput,
-        TouchableOpacity 
+        TouchableOpacity,
+        
         } from 'react-native';
+import { Link } from "react-router-native";
 
 export default class Form extends Component {
+
     render() {
         return (
     <View>
-        <TouchableOpacity style={styles.enterButton}>
-          <Text style={styles.enterButtonText}>Enter</Text>
-        </TouchableOpacity>
+        <Link to='/stadiumslist' style={styles.enterButton} >
+          <Text style={styles.enterButtonText} >Enter</Text>
+        </Link>
+        
             <View style={styles.container}>
                 <TextInput style={styles.inputBox} 
                     underlineColorAndroid='rgba(0,0,0,0)' 

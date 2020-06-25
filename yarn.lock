@@ -4545,7 +4545,7 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-native-gesture-handler@^1.6.1:
+react-native-gesture-handler@~1.6.0:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.6.1.tgz#678e2dce250ed66e93af409759be22cd6375dd17"
   integrity sha512-gQgIKhDiYf754yzhhliagLuLupvGb6ZyBdzYzr7aus3Fyi87TLOw63ers+r4kGw0h26oAWTAdHd34JnF4NeL6Q==
@@ -4560,10 +4560,10 @@ react-native-image-resizer@^1.2.3:
   resolved "https://registry.yarnpkg.com/react-native-image-resizer/-/react-native-image-resizer-1.2.3.tgz#21cb2b158ff950e55a0fc01c2cb61375bd5a03ba"
   integrity sha512-RDPNJglRmWDZ/7hvu+CbpsKYl6AQmseL8cWX4UkLAHxQWNc5ZdYhP/9avC5xCfyiwkRw+Zmkmv78HO0kt0ewhQ==
 
-react-native-reanimated@^1.7.1:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.9.0.tgz#38676c99dd585504fdc7331efb45e5f48ec7339a"
-  integrity sha512-Aj+spgIHRiVv7ezGADxnSH1EoKrQRD2+XaSiGY0MiB/pvRNNrZPSJ+3NVpvLwWf9lZMOP7dwqqyJIzoZgBDt8w==
+react-native-reanimated@~1.7.0:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.7.1.tgz#6363c7f3ebbabc56a05d5dccaf09d95f3b6a2d69"
+  integrity sha512-aBwhoQdH4shkeTPbi7vKcAwYOzBp/6zElEKuIOgby11TceoM7y5SgNImC3HbDWWld3QV2PA2AgQGwAy51WgF3Q==
   dependencies:
     fbjs "^1.0.0"
 
@@ -4596,10 +4596,12 @@ react-native-safe-area-view@^0.14.9:
   dependencies:
     hoist-non-react-statics "^2.3.1"
 
-react-native-screens@^2.9.0:
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-2.9.0.tgz#ead2843107ba00fee259aa377582e457c74f1f3b"
-  integrity sha512-5MaiUD6HA3nzY3JbVI8l3V7pKedtxQF3d8qktTVI0WmWXTI4QzqOU8r8fPVvfKo3MhOXwhWBjr+kQ7DZaIQQeg==
+react-native-screens@~2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-2.2.0.tgz#cc4cdf17426fdda97ad93a5e812a1899390f1978"
+  integrity sha512-a0VzxOWot7F9B/GQyDSssBRd3jUJazFnTQS61IiyReWB6aHlFhf3Xz10jBRoURXy1EMCDCHgenmTVTkKHpKyqQ==
+  dependencies:
+    debounce "^1.2.0"
 
 react-native-tab-view@^2.11.0:
   version "2.14.4"

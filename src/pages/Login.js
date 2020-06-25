@@ -17,7 +17,6 @@ export default class Login extends Component {
         return (
             <View style={styles.loginContainer}>             
                 <Form type={"Login"}/>
-                {/* <Text style={styles.loginCall}>Have an account? Login Above!</Text> */}
                 <View style={styles.signupTextCont}>
                 </View>
             </View>
