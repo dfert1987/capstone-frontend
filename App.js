@@ -1,40 +1,36 @@
-import React, { Component } from 'react';
-import {
-      NativeRouter,
-      Switch,
-      Route
-    }
-    from 'react-router-native'
+import 'react-native-gesture-handler';
+import React, { Component } from 'react'
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Home from './src/screens/Home.js';
+import StadiumsList from './src/screens/StadiumsList.js';
+import Navigator from './src/Routes.js'
+
+
 import {   
         StyleSheet, 
-        View
-        
+        View       
         } 
         from 'react-native';
-import Home from './src/pages/Home.js';
-import StadiumsList from './src/pages/StadiumsList.js'
 
 
+const Stack = createStackNavigator();
 
 
 export default class App extends Component{
   render() {
     return (
-        <NativeRouter>
-          <View style={styles.container}>
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route  exact path="/stadiumslist" component={StadiumsList} />
-            </Switch>
-          </View>
-        </NativeRouter>
+      <Navigator 
+      screenOptions={{
+        headerShown: false
+      }}/>
       );
     }
   }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+  
 
   }
 })

@@ -1,23 +1,21 @@
 import React, { Component } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import {  
         StyleSheet, 
         View,
         Text,
         TextInput,
         TouchableOpacity,
-        
+
         } from 'react-native';
-import { Link } from "react-router-native";
 
-export default class Form extends Component {
+export default function Form({ navigation }) {
 
-    render() {
-        return (
-    <View>
-        <Link to='/stadiumslist' style={styles.enterButton} >
-          <Text style={styles.enterButtonText} >Enter</Text>
-        </Link>
-        
+    
+   
+    return (
+        <View>
             <View style={styles.container}>
                 <TextInput style={styles.inputBox} 
                     underlineColorAndroid='rgba(0,0,0,0)' 
@@ -25,14 +23,14 @@ export default class Form extends Component {
                     placeholderTextColor = "#ffffff"
                     selectionColor="#fff"
                     keyboardType="email-address"
-                    onSubmitEditing={()=> this.password.focus()}
+                    onSubmitEditing={()=> password.focus()}
                 />
                 <TextInput style={styles.inputBox} 
                     underlineColorAndroid='rgba(0,0,0,0)' 
                     placeholder="Password"
                     secureTextEntry={true}
                     placeholderTextColor = "#ffffff"
-                    ref={(input) => this.password = input}
+                    ref={(input) => password = input}
                 />
                 <TouchableOpacity type="login" style={styles.loginbutton}>
                     <Text style={styles.buttonText}>Login</Text>
@@ -50,14 +48,15 @@ export default class Form extends Component {
             </View>
             )
         }
-    }
+    
 
 
 const styles= StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        
     },
     enterButtonText: {
         color: '#ffffff',
@@ -83,7 +82,7 @@ const styles= StyleSheet.create({
         paddingHorizontal:16,
         fontSize:16,
         position: "relative",
-        top: 10,
+        top: 20,
         color:'#ffffff',
         marginVertical: 10
         
@@ -95,7 +94,7 @@ const styles= StyleSheet.create({
         marginVertical: 10,
         height: 30,
         position: "relative",
-        top: 0
+        top: 10
     },
     signupbutton: {
         width:250,
@@ -104,7 +103,7 @@ const styles= StyleSheet.create({
         marginVertical: 10,
         height: 30,
         position: "relative",
-        top: -5
+        top: 5
     },
 
     buttonText: {
@@ -118,13 +117,13 @@ const styles= StyleSheet.create({
         color: "#ffffff",
         fontSize: 16,
         position: "relative",
-        top: -5
+        top: 5
     },
 
     signupcallstoaction: {
         color: "#ffffff",
         fontSize: 16,
         position: "relative",
-        top: -10
+        top: 5
     }
 })

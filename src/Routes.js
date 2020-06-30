@@ -1,18 +1,21 @@
-import React, { Component } from 'react';
-import {Router, Stack, Scene} from 'react-native-router-flux';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createAppContainer } from 'react-navigation'
+import Home from './screens/Home.js';
+import StadiumsList from './screens/StadiumsList.js';
+import StadiumMap from './screens/StadiumMap.js';
 
-import Login from './pages/Login.js';
-import Signup from './pages/Signup.js';
-
-export default class Routes extends Component {
-	render() {
-		return(
-			<Router>
-			    <Stack key="root" hideNavBar={true}>
-			      <Scene key="login" component={Login} title="Login" initial={true}/>
-			      <Scene key="signup" component={Signup} title="Signup"/>
-			    </Stack>
-			 </Router>
-			)
+const screens = {
+	Home: {
+		screen: Home
+	},
+	StadiumsList: {
+		screen: StadiumsList
+	},
+	StadiumMap: {
+		screen: StadiumMap
 	}
+
 }
+
+const HomeStack = createStackNavigator(screens);
+export default createAppContainer(HomeStack)
