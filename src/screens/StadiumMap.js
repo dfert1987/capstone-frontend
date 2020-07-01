@@ -16,6 +16,7 @@ class StadiumMap extends Component {
     render() {
         const stadium = this.props.navigation.state.params.stadium
         if(stadium) {
+            console.log(stadium)
             return (
                 <ScrollView>
                 <View>
@@ -36,9 +37,11 @@ class StadiumMap extends Component {
                     </View>
                 </View>
                 <View style={styles.formcontainer}>
-                <SectionForm style={styles.form}/>
+                <SectionForm
+                navigation = {this.props.navigation}
+                stadium ={stadium}
+                style={styles.form}/>
                 </View>
-
                 </ScrollView>
             )
         }

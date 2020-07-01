@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {  
     StyleSheet, 
     View,
-    Text
+    Text,
+    TouchableOpacity
     
     } from 'react-native';
     import RNPickerSelect from 'react-native-picker-select';
@@ -10,17 +11,27 @@ import {
 
     export default class SectionForm extends Component {
         state = {
-            chosenSection: []
+            chosenSection: [],
+            chosenStadium: [this.props.stadium]
+        }
+        
+        setChosenSection = (value) => {
+            this.setState(
+            {chosenSection: value}
+            )
+
         }
         render() {
-           
         return(
-            <View >
+            <View style={styles.container}>
+                <View styel={styles.buttonContainer}>
+              
+            <View style={styles.selectionContainer}>
                 <RNPickerSelect style={styles.picker}
-                    placeholder ={{label: 'Click Here to Choose',
+                    placeholder ={{label: 'Selct your section',
                     value: null,
                     }}
-                    onValueChange={(value) => console.log(value) }
+                    onValueChange={(value) => this.setChosenSection(value) }
                     items={[
                     { label: 'Section 1', value: '1' },
                     { label: 'Section 2', value: '2' },
@@ -38,15 +49,60 @@ import {
                     { label: 'Section 14', value: '14' },
                     { label: 'Section 15', value: '15' },
                     ]}
-                />       
+                /> 
+                
             </View>      
+            <View style={styles.buttonContainer}>
+            <TouchableOpacity
+            onPress={() => this.props.navigation.navigate(
+            'SectionPage', this.state, )}
+            style={styles.button}
+            >
+                <Text>Go to Selected Section</Text>
+            </TouchableOpacity>
+        </View>
+        </View>
+        </View>
         )
     }
 }
+
 const styles = StyleSheet.create({
     picker: {
-       fontFamily: "GillSans-Bold"
+       fontFamily: "GillSans-Bold",
+       position: "absolute",
+       top: -30,
+       right: 100
+       
+    },
+    button:{
+        backgroundColor: "red",
+        height: 40,
+        width: 200,
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+        position: "relative",
+        top: 10
+       
         
+    },
+    selectionContainer:{
+        flexDirection: "column",
+        top: -20,
+        alignItems: "center",
+        alignContent: 'center',
+        textAlign: 'center',
+        width: 300,
+        right: -30
+    },
+    buttonContainer: {
+        alignItems: "center",
+    },
+    container: {
+        alignItems: "center",
+        alignContent: "center",
+        textAlign: "center"
     }
 });
   
