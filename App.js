@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Home from './src/screens/Home.js';
 import StadiumsList from './src/screens/StadiumsList.js';
 import Navigator from './src/Routes.js'
+import Icon from 'react-native-ionicons'
 
 
 import {   

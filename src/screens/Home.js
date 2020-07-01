@@ -31,10 +31,7 @@ export default class App extends Component{
       );
     }
   }
-
-
   const styles = StyleSheet.create({
-  
     background: {
       flex: 1,
       justifyContent: 'center',
@@ -74,6 +71,4 @@ export default class App extends Component{
       color: "#FFFFFF",
       fontSize: 25
     }
-
-  
   })

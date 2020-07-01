@@ -7,6 +7,7 @@ import {
         Text,
         TextInput,
         TouchableOpacity,
+        Picker
 
         } from 'react-native';
 

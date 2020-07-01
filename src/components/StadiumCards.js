@@ -22,7 +22,7 @@ export default function StadiumCards({stadium, navigation}) {
         <View style={styles.card}>
             <ImageBackground source={require('./bluetexture.jpeg')} style={styles.cardbg}>
             <Text style={styles.cardTitle}>{stadium.name}</Text>
-            <Image source={{uri: imageUrl}} style={{ width: 100, height: 100, position: 'relative', top: 5, right: -25}}></Image>
+            <Image source={{uri: imageUrl}} style={{ width: 100, height: 100, position: 'relative', top: 7, right: -28,  shadowOffset: {width: 0, height: 3}, shadowRadius: 5, shadowOpacity: 1.0}}></Image>
             <TouchableOpacity
              onPress={() => navigation.navigate(
             'StadiumMap',{ stadium })}
@@ -47,8 +47,16 @@ const styles = StyleSheet.create({
         elevation: 3,
         shadowRadius: 2,
         shadowColor: '#333',
-        shadowOpacity: 0.3
+        shadowOpacity: 0.3,
+        shadowColor: '#000000',
+    shadowOffset: {
+      width: 0,
+      height: 3,
     },
+    shadowRadius: 5,
+    shadowOpacity: 1.0
+  },
+ 
     cardbg: {
         width: '100%'
     },
@@ -59,7 +67,7 @@ const styles = StyleSheet.create({
     height: 30,
     alignItems: "center",
     position: 'relative',
-    right: -25,
+    right: -28,
     justifyContent:"center"
     },
     buttonText:{
