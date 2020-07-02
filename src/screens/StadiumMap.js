@@ -16,7 +16,6 @@ class StadiumMap extends Component {
     render() {
         const stadium = this.props.navigation.state.params.stadium
         if(stadium) {
-            console.log(stadium)
             return (
                 <ScrollView>
                 <View>
@@ -79,7 +78,7 @@ const styles = StyleSheet.create({
     map: {
     height: '80%',
     width: '75%',
-    textAlign: 'center',
+    // textAlign: 'center',
     position: 'relative',
     right: -50,
     top:-10
