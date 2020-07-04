@@ -11,15 +11,19 @@ import {
     } 
 from 'react-native';
 
-export default function GetRestaurants({section, allRestaurants }) {
+export default function GetRestaurants({section, allRestaurants, navigation }) {
     const sectionId = section.id
+
+    handlePress = (navigation) => {
+        navigation.navigate('RestaurantsPage')
+    }
 
     findRestaurants = () => allRestaurants.map(restaurant => {
         if(restaurant.section.id === sectionId && restaurant.mainCategory === "Food")  {
             const restImage = restaurant.image
             console.log(restImage)
             return(
-                <TouchableOpacity style={styles.restaurantButtons}>
+                <TouchableOpacity onPress={handlePress(navigation)} style={styles.restaurantButtons}>
                     <ImageBackground source={require('../screens/hotdog.png')} style={styles.background}>
                     <Text style={styles.restaurantName}> {restaurant.name}</Text>
                     <Image source={{uri: restImage}} style={{ width: 200, borderWidth: 2, borderColor: "#20232a",height: 150, position: 'relative', top: -15, right: -95,  padding: 2, shadowOffset: {width: 0, height: 3}, shadowRadius: 5, shadowOpacity: 1.0}}/>

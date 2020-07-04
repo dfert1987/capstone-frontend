@@ -14,7 +14,7 @@ import GetRestaurants from './GetRestaurants.js'
 
 
 
-export default function GetSection ({ section, currentStadium, allRestaurants }) {
+export default function GetSection ({ section, currentStadium, allRestaurants, navigation }) {
    let sectionImage = section.image
         if(section.stadium_id === currentStadium.id) {
     return (
@@ -28,6 +28,7 @@ export default function GetSection ({ section, currentStadium, allRestaurants })
                     allRestaurants = {allRestaurants}
                     section = {section}
                     currentStadium = {currentStadium}
+                    navigation = {navigation}
                      />
                 </View>
         </View>

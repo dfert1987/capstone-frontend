@@ -4,6 +4,7 @@ import Home from './screens/Home.js';
 import StadiumsList from './screens/StadiumsList.js';
 import StadiumMap from './screens/StadiumMap.js';
 import SectionPage from './screens/SectionPage.js';
+import RestaurantsPage from './screens/RestaurantsPage.js';
 
 const screens = {
 	Home: {
@@ -17,6 +18,9 @@ const screens = {
 	},
 	SectionPage: {
 		screen: SectionPage
+	},
+	RestaurantsPage: {
+		screen: RestaurantsPage
 	}
 
 }

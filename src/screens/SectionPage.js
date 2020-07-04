@@ -13,12 +13,11 @@ import GetSection from '../components/GetSection.js';
 
 
     export default class SectionsPage extends Component{
-
         state = {
             sections: [],
             restaurants: []
         }
-        
+       
             componentDidMount(){
                 this.fetchSections()
                 this.fetchRestaurants()
@@ -56,12 +55,14 @@ import GetSection from '../components/GetSection.js';
                 )
             }
 
-            matchSectionNumber = (currentSection, currentStadium, allRestaurants) => this.state.sections.map(section  => {
+            matchSectionNumber = (currentSection, currentStadium, allRestaurants, navigation) => this.state.sections.map(section  => {
+               
                 if(section.number == currentSection)
                     return <GetSection
                         section = {section}
                         currentStadium = {currentStadium}
                         allRestaurants = {allRestaurants}
+                        navigation = {navigation}
                         />})
 
             // callRestaurants = (currentSection, currentStadium) => this.state.sections.map(section => {
@@ -80,6 +81,7 @@ import GetSection from '../components/GetSection.js';
             const currentSection = this.props.navigation.state.params.chosenSection
             const currentStadium = this.props.navigation.state.params.chosenStadium[0]
             const allRestaurants = this.state.restaurants
+            const navigation = this.props.navigation
           
                 return(
                     <ScrollView>
@@ -87,7 +89,7 @@ import GetSection from '../components/GetSection.js';
                             <Text style={styles.headerWelcome}>Welcome to {currentStadium.name}</Text>
                             <Text style={styles.headerSection}>Section: {currentSection}</Text>
                             <View>
-                                {this.matchSectionNumber(currentSection, currentStadium, allRestaurants)}
+                                {this.matchSectionNumber(currentSection, currentStadium, allRestaurants, navigation)}
                             </View>
                         </View>
                     </ScrollView>
