@@ -81,14 +81,16 @@ import GetSection from '../components/GetSection.js';
             const currentStadium = this.props.navigation.state.params.chosenStadium[0]
             const allRestaurants = this.state.restaurants
           
-              return(
-                    <View style={styles.headerContainer}>
-                        <Text style={styles.headerWelcome}>Welcome to {currentStadium.name}</Text>
-                        <Text style={styles.headerSection}>Section: {currentSection}</Text>
-                        <View>
-                            {this.matchSectionNumber(currentSection, currentStadium, allRestaurants)}
+                return(
+                    <ScrollView>
+                        <View style={styles.headerContainer}>
+                            <Text style={styles.headerWelcome}>Welcome to {currentStadium.name}</Text>
+                            <Text style={styles.headerSection}>Section: {currentSection}</Text>
+                            <View>
+                                {this.matchSectionNumber(currentSection, currentStadium, allRestaurants)}
+                            </View>
                         </View>
-                    </View>
+                    </ScrollView>
                     )
                 }
             }    
