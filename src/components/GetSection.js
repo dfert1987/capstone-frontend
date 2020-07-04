@@ -20,6 +20,9 @@ export default function GetSection ({ section, currentStadium, allRestaurants })
     return (
         <View >
                 <Image source={{uri: sectionImage}} style={{ width: 300, borderWidth: 2, borderColor: "#20232a",height: 150, position: 'relative', top: 7, right: -37,  padding: 2, shadowOffset: {width: 0, height: 3}, shadowRadius: 5, shadowOpacity: 1.0}}></Image>
+                <TouchableOpacity style={styles.addVendorButton}>
+                    <Text style={styles.buttonText}>+ Add A Vendor</Text>
+                </TouchableOpacity>
                 <View>
                     <GetRestaurants
                     allRestaurants = {allRestaurants}
@@ -53,5 +56,23 @@ const styles = StyleSheet.create({
         fontFamily: "GillSans-Bold",
         fontSize: 30,
         color: "blue"
+    },
+    addVendorButton:{
+        backgroundColor: '#0B71E0',
+        height: 30,
+        width: 130,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 20,
+        position: 'relative',
+        top: 20,
+        right: -130,
+        shadowColor: 'rgba(0,0,0, .4)', // IOS
+        shadowOffset: { height: 1, width: 1 }, // IOS
+        shadowOpacity: 1, 
+    },
+    buttonText: {
+        fontFamily: "GillSans-Bold",
+
     }
 })
