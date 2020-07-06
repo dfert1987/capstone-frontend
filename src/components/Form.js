@@ -8,12 +8,9 @@ import {
         TextInput,
         TouchableOpacity,
         Picker
-
         } from 'react-native';
 
 export default function Form({ navigation }) {
-
-    
    
     return (
         <View>

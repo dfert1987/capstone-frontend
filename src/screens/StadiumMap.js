@@ -37,9 +37,9 @@ class StadiumMap extends Component {
                 </View>
                 <View style={styles.formcontainer}>
                 <SectionForm
-                navigation = {this.props.navigation}
-                stadium ={stadium}
-                style={styles.form}/>
+                    navigation = {this.props.navigation}
+                    stadium ={stadium}
+                    style={styles.form}/>
                 </View>
                 </ScrollView>
             )

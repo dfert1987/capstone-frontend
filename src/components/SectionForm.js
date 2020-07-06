@@ -19,7 +19,6 @@ import {
             this.setState(
             {chosenSection: value}
             )
-
         }
         render() {
         return(
@@ -28,8 +27,9 @@ import {
               
             <View style={styles.selectionContainer}>
                 <RNPickerSelect style={styles.picker}
-                    placeholder ={{label: 'Selct your section',
+                    placeholder ={{label: 'Select your section',
                     value: null,
+                    
                     }}
                     onValueChange={(value) => this.setChosenSection(value) }
                     items={[
@@ -70,8 +70,8 @@ import {
 const styles = StyleSheet.create({
     picker: {
        fontFamily: "GillSans-Bold",
-       position: "absolute",
-       top: -30,
+       position: "relative",
+       marginRight: 80,
        right: 100
        
     },
