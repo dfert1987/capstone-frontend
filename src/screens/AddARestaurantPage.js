@@ -11,7 +11,8 @@ import {
     TextInput,
     ScrollView,
     Picker,
-    ImageBackground}
+    ImageBackground,
+    TouchableOpacity}
 from 'react-native';
 
 
@@ -19,6 +20,11 @@ const mainCategoryOptions = [
     {label: 'Food', value: 'Food'},
     {label: 'Drink', value: 'Drink'},
 ];
+
+const localSpecialtyOptions = [
+    {label: 'True', value: true},
+    {label: 'False', value: false}
+]
 
 
 export default class AddARestaurantPage extends Component{
@@ -29,24 +35,63 @@ export default class AddARestaurantPage extends Component{
         name: "",
         image: "",
         mainCategory: "",
+        cost:2,
         subCategory: "",
-        sectionId: [this.props.navigation.state.params.id]   
+        stars: 1,
+        localSpecialty: false,
+        description: "",
+        sectionId: [this.props.navigation.state.params.id]
+        }
+
+        handlePress = () => {
+            this.backendFunction();
+            this.backToStadium(this.props.navigation);
+        }
+
+        backToStadium = (navigation) => {
+            let stadium = this.props.currentStadium
+            navigation.navigate('StadiumMap', stadium )
+
+        }
+
+        backendFunction = () => {
+            
+            let newRestaurant={}
+            newRestaurant.name=this.state.name,
+            newRestaurant.description=this.state.description,
+            newRestaurant.mainCategory=this.state.mainCategory,
+            newRestaurant.subCategory=this.state.subCategory,
+            newRestaurant.localSpecialty=this.state.localSpecialty,
+            newRestaurant.image=this.state.image,
+            newRestaurant.cost=this.state.cost,
+            newRestaurant.stars=this.state.stars,
+            newRestaurant.section_id=this.state.sectionId[0] 
+            
+
+            fetch('http://localhost:3000/restaurants', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newRestaurant)
+            })
         }
     
-    
     render(){
-        
+            
         
             foodOrDrinkCategories = () => {
                 if(this.state.mainCategory == 'Food') {
                     return (
-                            <RNPickerSelect tyle={styles.pickerContainer}
-                            style={styles.pickerFood}
+                        <View style={styles.pickerContainer}>
+                            <RNPickerSelect 
+                            // style={styles.pickerFood}
                             placeholder ={{label: 'Select a category',
                             value: null, position: "relative", 
                             }}
-                            doneText={"poo"}
-                            onValueChange={(value) => console.log(value)}
+                            onValueChange={value => this.setState(
+                                {subCategory: value}
+                            )}
                             items={[
                             { label: 'Classic Ballpark Mix', value: 'Classic Ballpark Mix' },
                             { label: 'Burgers', value: 'burgers' },
@@ -60,16 +105,18 @@ export default class AddARestaurantPage extends Component{
                             { label: 'Sweet Treats', value: 'sweet treats' },
                             ]}
                             />
+                            </View>
                     )
                 } else {
                     return (
                         <View style={styles.pickerContainer}>
                         <RNPickerSelect
-                            style={styles.pickerDrink}
                             placeholder ={{label: 'Select a category',
                             value: null,
                             }}
-                            onValueChange={(value) => console.log(value)}
+                            onValueChange={value => this.setState(
+                                {subCategory: value}
+                            )}
                             items={[
                             { label: 'Beer', value: 'beer' },
                             { label: 'Cocktails/Spirits', value: 'cocktails/spirits' },
@@ -89,20 +136,22 @@ export default class AddARestaurantPage extends Component{
                     <Text style={styles.nameLabel}>Name</Text>
                     <TextInput
                         style={styles.inputBoxName}
-                        underlineColorAndroid='rgba(0,0,0,0)' 
                         placeholder="Vendor Name"
                         placeholderTextColor = 'white'
                         selectionColor="blue"
-                        keyboardType="email-address"
+                        onChangeText={text => this.setState(
+                            {name: text}
+                        )}
                     />
                     <Text style={styles.imageLabel}>Image</Text>
                     <TextInput
                         style={styles.inputBoxImage}
-                        underlineColorAndroid='rgba(0,0,0,0)' 
                         placeholder="Image URL"
                         placeholderTextColor = 'white'
                         selectionColor="blue"
-                        keyboardType="email-address"
+                        onChangeText={text => this.setState(
+                            {image: text}
+                        )}
                     />
                     <Text style={styles.mainCatLabel}>Food or Drink</Text>
                     <View>
@@ -119,6 +168,40 @@ export default class AddARestaurantPage extends Component{
                         <Text style={styles.subCatLabel}>Category</Text>
                             {foodOrDrinkCategories()}
                     </View>
+                    <Text style={styles.specialtyLabel}>Local Specialty</Text>
+                    <View>
+                        <View>
+                            <SwitchSelector style={styles.selectorSpecial}
+                               options={localSpecialtyOptions}
+                               initial={1}
+                               onPress={value => this.setState(
+                                {localSpecialty: value}
+                               )}
+                               buttonColor="red"
+                            />
+                        </View>
+                    </View>
+                    <View>
+                        <Text style={styles.descriptionLabel}>Description</Text>
+                        <TextInput 
+                            style={styles.inputBoxDescription}
+                            placeholder="Your description here..."
+                            multiline={true}
+                            placeholderTextColor = 'white'
+                            selectionColor="blue"
+                            onChangeText={text => this.setState(
+                                {description: text}
+                            )}
+                        >
+
+                        </TextInput>
+                    </View>
+                        <TouchableOpacity style={styles.submitButton}
+                                onPress={ this.handlePress}
+
+                            >
+                            <Text style={styles.submitText}>Submit</Text>
+                        </TouchableOpacity>
                 </View>
             </View>
          )       
@@ -139,6 +222,37 @@ width: '80%',
 alignSelf: 'center',
 position: 'relative',
 top: 5
+},
+
+selectorSpecial:{
+    width: '80%',
+alignSelf: 'center',
+position: 'relative',
+top: 32
+},
+
+submitButton:{
+    backgroundColor: 'red',
+    width: 150,
+    height: 40,
+    alignContent: "center",
+    alignItems:"center",
+    justifyContent:"center",
+    borderRadius: 8,
+    position: 'absolute',
+    top: 500,
+    left: 80
+},
+submitText: {
+    fontFamily: "GillSans-Bold",
+    fontSize: 20
+},
+descriptionLabel:{
+fontFamily: "GillSans-Bold",
+fontSize: 18,
+position: 'relative',
+right: -10,
+top: 40
 
 },
 pickerDrink: {
@@ -185,7 +299,7 @@ form: {
     backgroundColor: 'rgba(15,105,189,.8)',
     position: 'relative',
     width: '85%',
-    height: 400,
+    height: 550,
     right: -27,
     borderRadius: 6
 },
@@ -193,6 +307,13 @@ mainCatLabel: {
     position: "relative",
     top: 0,
     right: -15,
+    fontSize: 18,
+    fontFamily: "GillSans-Bold"
+},
+specialtyLabel: {
+    position: "relative",
+    top: 27,
+    right: -10,
     fontSize: 18,
     fontFamily: "GillSans-Bold"
 },
@@ -204,6 +325,19 @@ inputBoxImage: {
     fontSize:16,
     position: "relative",
     top: 0,
+    color:'black',
+    marginVertical: 10,
+    right: -10
+},
+inputBoxDescription:{
+    width: 300,
+    backgroundColor:'#5AA5F7',
+    borderRadius: 25,
+    paddingHorizontal:16,
+    fontSize:16,
+    position: "relative",
+    top: 40,
+    height: 120,
     color:'black',
     marginVertical: 10,
     right: -10

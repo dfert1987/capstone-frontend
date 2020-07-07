@@ -19,7 +19,6 @@ import { Link } from "react-router-native";
         state = {
             stadiums: []
         }
-
         componentDidMount(){
             fetch('http://localhost:3000/stadia')
                 .then(response => response.json())
@@ -56,24 +55,22 @@ import { Link } from "react-router-native";
 
         render() {
           return (
-            <ImageBackground source={require('./hotdog.png')} style={styles.background}>
-            <ScrollView>
-            
-            <View style={styles.container}>
-                <View style={styles.titleContainer}> 
-                    <Text style={styles.titleText}>Choose a Stadium</Text>
-                </View>
-                <Image source={require('./nlcent.png')} style={styles.divisionHeader}></Image>
-                <View style={styles.cardContainer}>
-                    {this.showStadiumsCentral()}
-                </View>
-                <Image source={require('./nlwelt.png')} style={styles.divisionHeaderWest}></Image>
-                <View style={styles.cardContainer2}>
-                    {this.showStadiumsWest()}
-                </View>
-            </View>
-           
-            </ScrollView>
+            <ImageBackground source={require('./bluedogs.jpg')} style={styles.background}>
+                <ScrollView>
+                    <View style={styles.container}>
+                        <View style={styles.titleContainer}> 
+                            <Text style={styles.titleText}>Choose a Stadium</Text>
+                        </View>
+                        <Image source={require('./nlcentnew.png')} style={styles.divisionHeader}></Image>
+                        <View style={styles.cardContainer}>
+                            {this.showStadiumsCentral()}
+                        </View>
+                        <Image source={require('./nlwest.png')} style={styles.divisionHeaderWest}></Image>
+                        <View style={styles.cardContainer2}>
+                            {this.showStadiumsWest()}
+                        </View>
+                    </View>
+                </ScrollView>
             </ImageBackground>
           ); 
         }
@@ -95,11 +92,13 @@ import { Link } from "react-router-native";
             width: 400
           },
         titleText: {
-            fontSize:30,
+            fontSize:35,
             fontFamily: "GillSans-Bold",
             textShadowColor: 'black',
             color: 'white',
-            textShadowRadius: 5
+            textShadowRadius: 5,
+            position: 'relative',
+            left: -5
         },
         cardContainer: {
         flexWrap: "wrap",

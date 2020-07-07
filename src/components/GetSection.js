@@ -30,7 +30,8 @@ export default function GetSection ({ section, currentStadium, allRestaurants, n
         <View >
                 <Image source={{uri: sectionImage}} style={{ width: 300, borderWidth: 2, borderColor: "#20232a",height: 150, position: 'relative', top: 7, right: -37,  padding: 2, shadowOffset: {width: 0, height: 3}, shadowRadius: 5, shadowOpacity: 1.0}}></Image>
                 <TouchableOpacity onPress={() => navigation.navigate(
-                    'AddARestaurantPage', section, currentStadium )}
+                    'AddARestaurantPage', section, allRestaurants, currentStadium 
+                    )}
                 style={styles.addVendorButton}>
                     <Text style={styles.buttonText}>+ Add A Vendor</Text>
                 </TouchableOpacity>

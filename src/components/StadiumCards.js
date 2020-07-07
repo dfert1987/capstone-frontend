@@ -20,16 +20,18 @@ export default function StadiumCards({stadium, navigation}) {
     return (
         
         <View style={styles.card}>
-            <ImageBackground source={require('./bluetexture.jpeg')} style={styles.cardbg}>
+            {/* <ImageBackground source={require('./bluetexture.jpeg')} style={styles.cardbg}> */}
             <Text style={styles.cardTitle}>{stadium.name}</Text>
-            <Image source={{uri: imageUrl}} style={{ width: 100, height: 100, position: 'relative', top: 7, right: -28,  shadowOffset: {width: 0, height: 3}, shadowRadius: 5, shadowOpacity: 1.0}}></Image>
+            <View style={styles.imageContainer}>
+                <Image source={{uri: imageUrl}} style={{ width: 100, height: 100, position: 'relative', top: 12, right: 0,  shadowOffset: {width: 0, height: 3}, shadowRadius: 5, shadowOpacity: 1.0}}></Image>
+            </View>
             <TouchableOpacity
              onPress={() => navigation.navigate(
             'StadiumMap',{ stadium })}
             style={styles.stadiumButton}>
-                    <Text style={styles.buttonText}>View Stadium</Text>
+                    <Text style={styles.buttonText}>View</Text>
             </TouchableOpacity>
-            </ImageBackground>
+            {/* </ImageBackground> */}
         </View>  
     )}   
 
@@ -43,7 +45,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         height: 170,
         borderRadius: 5,
-        backgroundColor: "blue",
+        backgroundColor: "#034389",
         elevation: 3,
         shadowRadius: 2,
         shadowColor: '#333',
@@ -56,40 +58,56 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     shadowOpacity: 1.0
   },
- 
+ imageContainer:{
+    shadowRadius: 2,
+        shadowColor: '#333',
+        shadowOpacity: 0.5,
+        shadowColor: '#000000',
+        shadowOffset: {
+            width: 0,
+            height: 3,
+          }
+ },
     cardbg: {
         width: '100%'
     },
 
     stadiumButton: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#67B6DE",
     width: 100,
     height: 30,
     alignItems: "center",
     position: 'relative',
-    right: -28,
-    justifyContent:"center"
+    right: 0,
+    borderRadius: 3,
+    justifyContent:"center",
+    top: 12
     },
     buttonText:{
     fontFamily: 'GillSans-Bold',
-    fontSize: 13
+    fontSize: 18,
+    color: "#034389",
+    textShadowColor: '#ffffff', textShadowOffset: { width: 0.5, height: 0.5 }, textShadowRadius: 1
+
 
     },
     cardTitle: {    
         alignContent: "center",
         alignItems: "center",
         fontFamily: 'GillSans-Bold',
-
-        color: "#ffffff",
+        color: "#67B6DE",
         textAlign:"center",
         position: 'relative',
-        top: 3
+        top: 5
     },
     cardImg: {
         height: 30,
         marginTop: 20,
-        position: 'absolute',
-        right: 80
+        position: 'relative',
+        right: 20,
+        shadowColor: 'rgba(0,0,0, .4)', // IOS
+        shadowOffset: { height: 1, width: 1 }, // IOS
+        shadowOpacity: 1
         },
 
     cardStats: {

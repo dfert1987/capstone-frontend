@@ -18,7 +18,7 @@ export default function Form({ navigation }) {
                 <TextInput style={styles.inputBox} 
                     underlineColorAndroid='rgba(0,0,0,0)' 
                     placeholder="Username"
-                    placeholderTextColor = "#ffffff"
+                    placeholderTextColor = "white"
                     selectionColor="#fff"
                     keyboardType="email-address"
                     onSubmitEditing={()=> password.focus()}
@@ -27,7 +27,7 @@ export default function Form({ navigation }) {
                     underlineColorAndroid='rgba(0,0,0,0)' 
                     placeholder="Password"
                     secureTextEntry={true}
-                    placeholderTextColor = "#ffffff"
+                    placeholderTextColor = "white"
                     ref={(input) => password = input}
                 />
                 <TouchableOpacity type="login" style={styles.loginbutton}>
@@ -87,41 +87,55 @@ const styles= StyleSheet.create({
     },
     loginbutton: {
         width:250,
-        backgroundColor: "red",
+        backgroundColor: "#034389",
         borderRadius: 25,
         marginVertical: 10,
         height: 30,
         position: "relative",
-        top: 10
+        top: 10,
+        shadowColor: 'rgba(0,0,0, .4)', // IOS
+        shadowOffset: { height: 1, width: 1 }, // IOS
+        shadowOpacity: 1, 
     },
     signupbutton: {
         width:250,
-        backgroundColor: "red",
+        backgroundColor: "#034389",
         borderRadius: 25,
         marginVertical: 10,
         height: 30,
         position: "relative",
-        top: 5
+        top: 5,
+        shadowColor: 'rgba(0,0,0, .4)', // IOS
+        shadowOffset: { height: 1, width: 1 }, // IOS
+        shadowOpacity: 1
     },
 
     buttonText: {
-        fontSize: 20,
+        fontSize: 22,
         fontWeight: '500',
-        color: '#ffffff',
-        textAlign: 'center'
+        color: '#0493DB',
+        textAlign: 'center',
+        fontFamily: "GillSans-Bold",
+        
+        textShadowColor: '#000', textShadowOffset: { width: 0.5, height: 0.5 }, textShadowRadius: 1
+
     },
 
     callstoaction: {
         color: "#ffffff",
         fontSize: 16,
         position: "relative",
-        top: 5
+        top: 5,
+        textShadowColor: '#000', textShadowOffset: { width: 0.5, height: 0.5 }, textShadowRadius: 1
+
     },
 
     signupcallstoaction: {
         color: "#ffffff",
         fontSize: 16,
         position: "relative",
-        top: 5
+        top: 5,
+        textShadowColor: '#000', textShadowOffset: { width: 0.5, height: 0.5 }, textShadowRadius: 1
+
     }
 })

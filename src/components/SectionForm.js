@@ -55,10 +55,10 @@ import {
             <View style={styles.buttonContainer}>
             <TouchableOpacity
             onPress={() => this.props.navigation.navigate(
-            'SectionPage', this.state, )}
+            'SectionPage', this.state )}
             style={styles.button}
             >
-                <Text>Go to Selected Section</Text>
+                <Text style={styles.buttonText}>Go to Selected Section</Text>
             </TouchableOpacity>
         </View>
         </View>
@@ -76,16 +76,23 @@ const styles = StyleSheet.create({
        
     },
     button:{
-        backgroundColor: "red",
+        backgroundColor: "#034389",
         height: 40,
         width: 200,
         alignItems: "center",
         justifyContent: "center",
         textAlign: "center",
         position: "relative",
-        top: 10
-       
-        
+        top: 0,
+        right: 10,
+        borderRadius: 8,
+        shadowColor: 'rgba(0,0,0, .4)', // IOS
+        shadowOffset: { height: 1, width: 1 }, // IOS
+        shadowOpacity: 1
+    },
+    buttonText: {
+        fontFamily: 'GillSans-Bold',
+        color: "#03C1FF"
     },
     selectionContainer:{
         flexDirection: "column",

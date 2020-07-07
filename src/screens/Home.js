@@ -54,13 +54,14 @@ export default class App extends Component{
       
   },
   buttonEnter: {
-    backgroundColor: '#0B71E0',
+    backgroundColor: '#034389',
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 20,
         width: 150,
         height: 40,
         position: 'relative',
+        fontFamily: 'GillSans-Bold',
         top: 10,
         right: 5,
         shadowColor: 'rgba(0,0,0, .4)', // IOS
@@ -68,7 +69,10 @@ export default class App extends Component{
         shadowOpacity: 1, 
   },
     buttonText: {
-      color: "#FFFFFF",
-      fontSize: 25
+      color: "#0493DB",
+      fontSize: 25,
+      fontFamily: 'GillSans-Bold',
+      textShadowColor: '#000', textShadowOffset: { width: 0.5, height: 0.5 }, textShadowRadius: 1
+     
     }
   })
