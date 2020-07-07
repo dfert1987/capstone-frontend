@@ -35,7 +35,7 @@ class StadiumMap extends Component {
                                 </View>
                                 <Image  style={styles.map} source={require('./wrigley.png')} />
                                 <Text style={styles.choose}>Section Color Key</Text>
-                                <Image style={styles.sections} source={require('./smallsections.png')}/>
+                                <Image style={styles.sections} source={require('./sectionskeyborder.png')}/>
                             </View>
                         </View>
                         <View style={styles.formcontainer}>
@@ -92,12 +92,12 @@ const styles = StyleSheet.create({
         height: 600,
       },
     map: {
-    height: '80%',
+    height: '74%',
     width: '90%',
     // textAlign: 'center',
     position: 'relative',
     right: -10,
-    top:-10,
+    top:0,
     shadowColor: 'rgba(0,0,0, .4)', // IOS
         shadowOffset: { height: 6, width: 6 }, // IOS
         shadowOpacity: 5, 
@@ -106,19 +106,21 @@ const styles = StyleSheet.create({
         fontFamily:"GillSans-Bold",
         // textAlign: "center",
         position: "relative",
-        top: -15,
-        right: -120,
+        top: 5,
+        right: -110,
         fontSize: 18,
         color: "#ffffff",
         textShadowColor: '#000', textShadowOffset: { width: 0.9, height: 0.9 }, textShadowRadius: 1
-
-
     },
     sections: {
         position: "relative",
-        top: -10,
-        right: -70,
-        marginBottom: 0   
+        // top: -10,
+        // right: -70,
+        marginBottom: 0,
+        height: 100,
+        left: 32,
+        width: 312,
+        top: 10
 },
 form:{
     position: 'relative',

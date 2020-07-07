@@ -36,12 +36,15 @@ export default class StadiumsList extends Component{
                         shadowRadius: 5, 
                         shadowOpacity: 1.0}}
                     />
-                    <Text style={styles.reviewsHeader}>Reviews</Text>
                 </View>
                 <View>
                     <TouchableOpacity style={styles.addAReviewButton}>
                         <Text style={styles.buttonText}>Add A Review +</Text>
                     </TouchableOpacity>
+                </View>
+                <View style={styles.headSub}>
+                    <Text style={styles.reviewsHeader}>Reviews</Text>
+                    <Text style={styles.reviewsOnboarding}>Tap to see full review</Text>
                 </View>
                     <View>
                         <GetReviews restaurant = {restaurant}/>
@@ -65,16 +68,26 @@ const styles = StyleSheet.create({
         position: 'relative',
         top: 5
     },
+    headSub:{
+        top:11
+    },
     reviewsHeader: {
         fontSize: 20,
         fontFamily: 'GillSans-Bold',
         top: 15,
         textAlign: 'center'
     },
+    reviewsOnboarding: {
+        fontFamily: 'GillSans-Bold',
+        fontStyle: 'italic',
+        top: 15,
+        textAlign: 'center'
+
+    },
     addAReviewButton: {
         position: 'relative',
         top: 20,
-        right: -10,
+        alignSelf: 'center',
         backgroundColor: "red",
         alignItems: "center",
         width: 130,

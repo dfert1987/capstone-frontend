@@ -20,11 +20,15 @@ export default function GetRestaurants({section, allRestaurants, navigation }) {
     findRestaurants = () => allRestaurants.map(restaurant => {
         if(restaurant.section.id === sectionId && restaurant.mainCategory === "Food")  {
             const restImage = restaurant.image
+            const key = restaurant.id
             return(
                 <TouchableOpacity onPress={() => navigation.navigate(
-                    'RestaurantsPage', restaurant
+                    'RestaurantsPage', 
+                    restaurant,
+                    key
                     
-                )} style={styles.restaurantButtons}>
+                )}
+                 style={styles.restaurantButtons}>
                     <ImageBackground source={require('../screens/hotdog.png')} style={styles.background}>
                     <Text style={styles.restaurantName}> {restaurant.name}</Text>
                     <Image source={{uri: restImage}} style={{ width: 200, borderWidth: 2, borderColor: "#20232a",height: 150, position: 'relative', top: -15, right: -95,  padding: 2, shadowOffset: {width: 0, height: 3}, shadowRadius: 5, shadowOpacity: 1.0}}/>
@@ -43,11 +47,10 @@ export default function GetRestaurants({section, allRestaurants, navigation }) {
     findBar = () => allRestaurants.map(restaurant => {
         if(restaurant.section.id === sectionId && restaurant.mainCategory === "Drink") {
             const restImage = restaurant.image
+            const key = restaurant.id
             return(
                 <TouchableOpacity onPress={() => navigation.navigate(
-                    'RestaurantsPage',
-                    section,
-                    restaurant
+                    'RestaurantsPage', restaurant, key
                 )}
                 style={styles.barButtons}>
                     <ImageBackground source={require('./beerbackground.jpg')} style={styles.background}>
