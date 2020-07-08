@@ -12,6 +12,7 @@ from 'react-native';
 
 export default function GetRestaurants({section, allRestaurants, navigation }) {
     const sectionId = section.id
+    console.log(allRestaurants)
 
     findRestaurants = () => allRestaurants.map(restaurant => {
         if(restaurant.section.id === sectionId && restaurant.mainCategory === "Food")  {

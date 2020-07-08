@@ -13,7 +13,7 @@ import {
 from 'react-native';
 import GetRestaurants from './GetRestaurants.js'
 
-export default function GetSection ({ section, currentStadium, allRestaurants, navigation }) {
+export default function GetSection ({ section, currentStadium,  navigation, allRestaurants }) {
    let sectionImage = section.image
 
         if(section.stadium_id === currentStadium.id) {
@@ -28,10 +28,10 @@ export default function GetSection ({ section, currentStadium, allRestaurants, n
                 </TouchableOpacity>
                 <View style={styles.restoCont}>
                     <GetRestaurants 
-                    allRestaurants = {allRestaurants}
                     section = {section}
                     currentStadium = {currentStadium}
                     navigation = {navigation}
+                    allRestaurants = {allRestaurants}
                      />
                 </View>
         </View>
