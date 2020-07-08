@@ -77,7 +77,8 @@ import { Link } from "react-router-native";
       const styles = StyleSheet.create({
         container: {
             alignItems: "center",
-            alignContent: "center"
+            alignContent: "center",
+            width: '95%'
            
         },
         titleContainer: {
@@ -128,7 +129,7 @@ import { Link } from "react-router-native";
             width: 250,
             position: "relative",
             top: 65,
-            right: 60
+            right: 53
         },
         divisionHeaderWest:{
             height: 30,

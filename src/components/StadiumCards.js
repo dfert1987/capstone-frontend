@@ -23,13 +23,13 @@ export default function StadiumCards({stadium, navigation}) {
             {/* <ImageBackground source={require('./bluetexture.jpeg')} style={styles.cardbg}> */}
             <Text style={styles.cardTitle}>{stadium.name}</Text>
             <View style={styles.imageContainer}>
-                <Image source={{uri: imageUrl}} style={{ width: 100, height: 100, position: 'relative', top: 12, right: 0,  shadowOffset: {width: 0, height: 3}, shadowRadius: 5, shadowOpacity: 1.0}}></Image>
+                <Image source={{uri: imageUrl}} style={{ width: 173, height: 150, position: 'relative', top: -16, right: 0}}></Image>
             </View>
             <TouchableOpacity
              onPress={() => navigation.navigate(
             'StadiumMap',{ stadium })}
             style={styles.stadiumButton}>
-                    <Text style={styles.buttonText}>View</Text>
+                    <Text style={styles.buttonText}>{stadium.name}</Text>
             </TouchableOpacity>
             {/* </ImageBackground> */}
         </View>  
@@ -37,36 +37,18 @@ export default function StadiumCards({stadium, navigation}) {
 
 const styles = StyleSheet.create({
     card: {
-        width: "40%",
-        alignContent: "center",
-        alignItems: "center",
-        marginLeft: 9,
-        marginRight: 20,
-        marginBottom: 10,
+        width: "50%",
+        marginRight: 0,
         height: 170,
-        borderRadius: 5,
-        backgroundColor: "#034389",
+        backgroundColor: 'rgba(52, 52, 52, 0.3)',
         elevation: 3,
-        shadowRadius: 2,
-        shadowColor: '#333',
-        shadowOpacity: 0.3,
-        shadowColor: '#000000',
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowRadius: 5,
-    shadowOpacity: 1.0
+        borderWidth:1,
+        borderRadius: 0,
+        
   },
  imageContainer:{
-    shadowRadius: 2,
-        shadowColor: '#333',
-        shadowOpacity: 0.5,
-        shadowColor: '#000000',
-        shadowOffset: {
-            width: 0,
-            height: 3,
-          }
+   
+          
  },
     cardbg: {
         width: '100%'
@@ -74,32 +56,32 @@ const styles = StyleSheet.create({
 
     stadiumButton: {
     backgroundColor: "#67B6DE",
-    width: 100,
-    height: 30,
+    width: '100%',
+    height: 29,
     alignItems: "center",
     position: 'relative',
     right: 0,
-    borderRadius: 3,
+    borderRadius: 1,
     justifyContent:"center",
-    top: 12
+    top: -29,
     },
     buttonText:{
     fontFamily: 'GillSans-Bold',
-    fontSize: 18,
+    fontSize: 17,
     color: "#034389",
     textShadowColor: '#ffffff', textShadowOffset: { width: 0.5, height: 0.5 }, textShadowRadius: 1
 
 
     },
-    cardTitle: {    
-        alignContent: "center",
-        alignItems: "center",
-        fontFamily: 'GillSans-Bold',
-        color: "#67B6DE",
-        textAlign:"center",
-        position: 'relative',
-        top: 5
-    },
+    // cardTitle: {    
+    //     alignContent: "center",
+    //     alignItems: "center",
+    //     fontFamily: 'GillSans-Bold',
+    //     color: "#67B6DE",
+    //     textAlign:"center",
+    //     position: 'relative',
+    //     top: 5
+    // },
     cardImg: {
         height: 30,
         marginTop: 20,
