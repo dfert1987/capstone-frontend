@@ -63,20 +63,20 @@ import {
                     { label: 'Section 15', value: '15' },
                     ]}
                 >
-                <TouchableOpacity>
-                <Text>Click</Text>
+                <TouchableOpacity style={styles.button}>
+                <Text style={styles.buttonText}>Choose Your Section</Text>
                 </TouchableOpacity>
                 </RNPickerSelect>
             </View>      
-            <View style={styles.buttonContainer}>
+            {/* <View style={styles.buttonContainer}>
             <TouchableOpacity
             onPress={() => this.props.navigation.navigate(
             'SectionPage', this.state )}
             style={styles.button}
             >
                 <Text style={styles.buttonText}>Go to Selected Section</Text>
-            </TouchableOpacity>
-        </View>
+            </TouchableOpacity> */}
+        {/* </View> */}
         </View>
         </View>
         )
@@ -99,12 +99,13 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         textAlign: "center",
         position: "relative",
-        top: 0,
-        right: 10,
+        top: 30,
+        right: 0,
         borderRadius: 8,
         shadowColor: 'rgba(0,0,0, .4)', // IOS
         shadowOffset: { height: 1, width: 1 }, // IOS
-        shadowOpacity: 1
+        shadowOpacity: 1,
+        
     },
     buttonText: {
         fontFamily: 'GillSans-Bold',
