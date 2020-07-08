@@ -4,7 +4,6 @@ import {
     View,
     Text,
     TouchableOpacity
-    
     } from 'react-native';
     import RNPickerSelect from 'react-native-picker-select';
    

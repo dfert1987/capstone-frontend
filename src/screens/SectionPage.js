@@ -65,25 +65,14 @@ import GetSection from '../components/GetSection.js';
                         navigation = {navigation}
                         />})
 
-            // callRestaurants = (currentSection, currentStadium) => this.state.sections.map(section => {
-            //     if(section.number == currentSection)
-            //         return <GetRestaurants
-            //             section = {section}
-            //             currentStadium = {currentStadium}
-            //             allRestaurants = {this.state.restaurants}
-            //             />
-            // })
-                
-                
-
         render(){
-            // console.log(this.state.restaurants)
             const currentSection = this.props.navigation.state.params.chosenSection
             const currentStadium = this.props.navigation.state.params.chosenStadium[0]
             const allRestaurants = this.state.restaurants
             const navigation = this.props.navigation
           
                 return(
+                    <ImageBackground source={require('./pizzabg.png')} style={styles.background}>
                     <ScrollView>
                         <View style={styles.headerContainer}>
                             <Text style={styles.headerWelcome}>Welcome to {currentStadium.name}</Text>
@@ -93,6 +82,7 @@ import GetSection from '../components/GetSection.js';
                             </View>
                         </View>
                     </ScrollView>
+                    </ImageBackground>
                     )
                 }
             }    
@@ -105,12 +95,29 @@ import GetSection from '../components/GetSection.js';
         headerSection:{
             textAlign: "center",
             fontSize: 18,
-            fontFamily: "GillSans-Bold"
+            fontFamily: "GillSans-Bold",
+            color: '#ffffff',
+            top: 10,
+            shadowColor: 'rgba(0,0,0, 1)', // IOS
+            shadowOffset: { height: 3, width: 3 }, // IOS
+            shadowOpacity: 1,
         },
         headerWelcome: {
             textAlign:"center",
             fontSize: 25,
-            fontFamily: "GillSans-Bold"
-        }
+            fontFamily: "GillSans-Bold",
+            left: -12,
+            color: '#ffffff',
+            shadowColor: 'rgba(0,0,0, 1)', // IOS
+            shadowOffset: { height: 3, width: 3 }, // IOS
+            shadowOpacity: 1,
+            top: 10
+        },
+        background: {
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: 400
+          },
     })
 

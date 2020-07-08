@@ -90,7 +90,7 @@ export default class ReviewCard extends Component{
                         <View style={styles.imageContainer}>
                             <Image source={{ uri: reviewThumb }}
                                 style={{ width: 90, 
-                                borderWidth: 2, 
+                                borderWidth: 1, 
                                 borderColor: "#20232a",
                                 height: 90, 
                                 position: 'relative', 
@@ -121,8 +121,13 @@ export default class ReviewCard extends Component{
                 isVisible={this.state.isModalVisible}
                 style={{
                     backgroundColor:'white',
-                    maxHeight:400,
-                    justifyContent:'center'
+                    maxHeight:450,
+                    justifyContent:'center',
+                    position: 'relative',
+                    top: 80,
+                    borderWidth: 2,
+                    borderRadius: 5,
+                    borderColor: '#0493DB'
                 }}
             >
             <View style={{ flex: 1 }}>
@@ -149,16 +154,19 @@ export default class ReviewCard extends Component{
                     {this.starPics(stars)}
                 </View>
                 <View>
-                    <Text style={styles.fullReview}>{review.reviewText}</Text>
+                    <Text style={styles.fullReview}>"{review.reviewText}"</Text>
+                </View>
+                <View>
+                    <Text style={styles.userName}> - {review.user}</Text>
                 </View>
                 </View>
             </View>
             <View style={{ flex: 1,justifyContent:'center',position:'absolute',bottom:0}}>
                 <View style={{flexDirection:'row'}}>
                     <TouchableOpacity 
-                        style={{backgroundColor:'blue',width:'100%'}}
-                        onPress = {()=>this.toggleModal()}>
-                        <Text style={{color:'white',textAlign:'center',padding:10}}>Close</Text>
+                        style={{ backgroundColor:'#034389',width:'100%' }}
+                        onPress = { ()=>this.toggleModal() }>
+                        <Text style={{ color:'#0493DB',textAlign:'center', fontSize: 18, fontFamily: 'GillSans-Bold', padding:10 }}>Close</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -173,25 +181,37 @@ const styles = StyleSheet.create({
     cardContainer: {
         position: "relative",
         top: 30,
-        marginBottom: 3,
-        borderWidth: 2,
+        marginBottom: 0,
+        left: -23,
+        borderBottomWidth: 1,
+        backgroundColor: 'rgba(52, 52, 52, 0.3)'
+
+        // borderColor: '#ffffff'
     },
     title: {
         fontFamily: "GillSans-Bold",
         fontSize: 18,
         position: "relative",
         top: 3,
+        color: '#ffffff',
         textAlign: "center",
-        fontStyle: "italic"
+        fontStyle: "italic",
+        shadowColor: 'rgba(0,0,0, .9)', // IOS
+        shadowOffset: { height: 5, width: 5 }, // IOS
+        shadowOpacity: 5, 
     },
     imageAndText: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        
     },
     stars: {
         alignItems: "center",
         position: "relative",
         height: 50,
-        top: 3
+        top: 3,
+        shadowColor: 'rgba(0,0,0, .3)', // IOS
+        shadowOffset: { height: 5, width: 5 }, // IOS
+        shadowOpacity: 2, 
     },
     content: {
         flexDirection: 'column'
@@ -199,7 +219,9 @@ const styles = StyleSheet.create({
     user: {
         top: 2,
         textAlign: 'right',
-        fontStyle: 'italic'
+        fontStyle: 'italic',
+        color: '#ffffff',
+        left: -5
     },
     modalTitle:{
         textAlign:'center',
@@ -220,6 +242,14 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontFamily: 'GillSans-Bold',
         alignSelf:'center',
-        textAlign: 'center'
+        textAlign: 'center',
+        fontStyle: 'italic'
+    },
+    userName: {
+        textAlign: 'right',
+        marginRight: 10,
+        top: 10,
+        fontSize: 15
+
     }
 })

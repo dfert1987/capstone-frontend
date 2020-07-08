@@ -94,7 +94,6 @@ const styles = StyleSheet.create({
     map: {
     height: '74%',
     width: '90%',
-    // textAlign: 'center',
     position: 'relative',
     right: -10,
     top:0,
@@ -104,7 +103,6 @@ const styles = StyleSheet.create({
     },
     choose: {
         fontFamily:"GillSans-Bold",
-        // textAlign: "center",
         position: "relative",
         top: 5,
         right: -110,

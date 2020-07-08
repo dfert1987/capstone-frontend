@@ -13,7 +13,6 @@ import {
 import StadiumCards from '../components/StadiumCards.js';
 import { Link } from "react-router-native";
 
-
     export default class StadiumsList extends Component{
 
         state = {
