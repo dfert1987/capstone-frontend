@@ -55,20 +55,22 @@ import GetSection from '../components/GetSection.js';
                 )
             }
 
-            matchSectionNumber = (currentSection, currentStadium, allRestaurants, navigation) => this.state.sections.map(section  => {
-               
+            matchSectionNumber = (currentSection, currentStadium,  navigation) => this.state.sections.map(section  => {
                 if(section.number == currentSection)
                     return <GetSection
                         section = {section}
                         currentStadium = {currentStadium}
-                        allRestaurants = {allRestaurants}
                         navigation = {navigation}
                         />})
 
         render(){
-            const currentSection = this.props.navigation.state.params.chosenSection
-            const currentStadium = this.props.navigation.state.params.chosenStadium[0]
+
+            const currentSection = this.props.navigation.state.params.value
+            const currentStadium = this.props.navigation.state.params.chosenStadium
+            // const currrrentStadium =currentStadium[0]
             const allRestaurants = this.state.restaurants
+            
+            console.log(allRestaurants)
             const navigation = this.props.navigation
           
                 return(
@@ -78,7 +80,7 @@ import GetSection from '../components/GetSection.js';
                             <Text style={styles.headerWelcome}>Welcome to {currentStadium.name}</Text>
                             <Text style={styles.headerSection}>Section: {currentSection}</Text>
                             <View>
-                                {this.matchSectionNumber(currentSection, currentStadium, allRestaurants, navigation)}
+                                {this.matchSectionNumber(allRestaurants, currentSection, currentStadium, navigation)}
                             </View>
                         </View>
                     </ScrollView>
@@ -89,15 +91,17 @@ import GetSection from '../components/GetSection.js';
         
     const styles = StyleSheet.create({
         headerContainer: {
-            alignContent: "center"
-
+            left: -58,
+            width: 500
         },
         headerSection:{
             textAlign: "center",
+            
             fontSize: 18,
             fontFamily: "GillSans-Bold",
             color: '#ffffff',
-            top: 10,
+            top: 18,
+            left: 0,
             shadowColor: 'rgba(0,0,0, 1)', // IOS
             shadowOffset: { height: 3, width: 3 }, // IOS
             shadowOpacity: 1,
@@ -106,12 +110,12 @@ import GetSection from '../components/GetSection.js';
             textAlign:"center",
             fontSize: 25,
             fontFamily: "GillSans-Bold",
-            left: -12,
+            left: 0,
             color: '#ffffff',
             shadowColor: 'rgba(0,0,0, 1)', // IOS
             shadowOffset: { height: 3, width: 3 }, // IOS
             shadowOpacity: 1,
-            top: 10
+            top: 18
         },
         background: {
             flex: 1,

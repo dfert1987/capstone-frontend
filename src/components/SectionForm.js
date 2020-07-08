@@ -9,28 +9,42 @@ import {
    
 
     export default class SectionForm extends Component {
-        state = {
-            chosenSection: [],
-            chosenStadium: [this.props.stadium]
-        }
+            
         
-        setChosenSection = (value) => {
-            this.setState(
-            {chosenSection: value}
-            )
-        }
+        // onStateChange = () => {
+        //     this.state.chosenSection on
+        // }
+
+
+
+        // setChosenSection = (value) => {
+        //     this.setState(
+        //     {chosenSection: value}
+        //     )
+        //     chosenSection.onValueChange(
+        //         this.props.navigation.navigate(
+        //             'SectionPage', this.state.chosenStadium )
+        //     )
+            
+        // }
         render() {
+            let chosenStadium = this.props.stadium
         return(
             <View style={styles.container}>
                 <View styel={styles.buttonContainer}>
               
             <View style={styles.selectionContainer}>
                 <RNPickerSelect style={styles.picker}
-                    placeholder ={{label: 'Select your section',
+                    placeholder ={{label: ' ',
                     value: null,
                     
                     }}
-                    onValueChange={(value) => this.setChosenSection(value) }
+                    onValueChange={(value) => this.props.navigation.navigate(
+                        'SectionPage',{value, chosenStadium})}
+                       
+                    
+                    
+                    
                     items={[
                     { label: 'Section 1', value: '1' },
                     { label: 'Section 2', value: '2' },
@@ -48,8 +62,11 @@ import {
                     { label: 'Section 14', value: '14' },
                     { label: 'Section 15', value: '15' },
                     ]}
-                /> 
-                
+                >
+                <TouchableOpacity>
+                <Text>Click</Text>
+                </TouchableOpacity>
+                </RNPickerSelect>
             </View>      
             <View style={styles.buttonContainer}>
             <TouchableOpacity
@@ -64,8 +81,8 @@ import {
         </View>
         )
     }
-}
 
+    }
 const styles = StyleSheet.create({
     picker: {
        fontFamily: "GillSans-Bold",
